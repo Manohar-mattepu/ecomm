@@ -8,8 +8,10 @@ pipeline {
         }
         stage('Copy HTML') {
             steps {
-                // avoid sudo and use a directory Jenkins owns
-                sh 'mkdir -p /home/jenkins/html && cp index.html /home/jenkins/html/'
+                sh '''
+                    mkdir -p html_output
+                    cp index.html html_output/
+                '''
             }
         }
     }
